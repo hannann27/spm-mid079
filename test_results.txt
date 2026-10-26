@@ -1,0 +1,49 @@
+Test cases - Smart Healthcare Project Management System (Hannan Razzaq)
+
+ID    Description                                                     Expected                  Actual                    Result
+TC01  Total planned cost (BAC) of sample project                      4950000                   4950000                   PASS
+TC02  PV at status date 2026-10-26                                    2831667                   2831667                   PASS
+TC03  EV = sum(cost x %complete)                                      2542500                   2542500                   PASS
+TC04  AC = sum of actual costs                                        2715000                   2715000                   PASS
+TC05  CPI = EV/AC                                                     0.94                      0.94                      PASS
+TC06  SPI = EV/PV                                                     0.9                       0.9                       PASS
+TC07  Warnings raised for CPI & SPI below 0.95                        2                         2                         PASS
+TC08  Task 5 (90% done, overdue) is flagged Delayed by 9 days         Delayed/9                 Delayed/9                 PASS
+TC09  Dependent task 7 is Impacted (+9 d) caused by task 5            Impacted/9/[5]            Impacted/9/[5]            PASS
+TC10  Forecast finish vs deadline 2026-12-20 -> 2 days late           2026-12-22/2              2026-12-22/2              PASS
+TC11  Task linked to a Proposed (unapproved) requirement is rejected  VE                        VE                        PASS
+TC12  Requirement from pending CR cannot be approved directly         VE                        VE                        PASS
+TC13  Task that would exceed approved budget is rejected              VE                        VE                        PASS
+TC14  Circular dependency (task 1 depends on 13) rejected             VE                        VE                        PASS
+TC15  Self dependency rejected                                        VE                        VE                        PASS
+TC16  Negative cost rejected                                          VE                        VE                        PASS
+TC17  Invalid date rejected                                           VE                        VE                        PASS
+TC18  Unknown assignee rejected                                       VE                        VE                        PASS
+TC19  % complete > 100 rejected                                       VE                        VE                        PASS
+TC20  Approved baseline: direct budget edit rejected                  VE                        VE                        PASS
+TC21  Critical defect without assignee rejected                       VE                        VE                        PASS
+TC22  Defect cannot be Closed before Resolved                         VE                        VE                        PASS
+TC23  Quality Pass without inspector/date rejected                    VE                        VE                        PASS
+TC24  Failed inspection auto-creates a defect                         1                         1                         PASS
+TC25  Risk score = likelihood x impact (4x5)                          20                        20                        PASS
+TC26  High risk without corrective action rejected                    VE                        VE                        PASS
+TC27  Highest-ranked risk is score 20                                 20                        20                        PASS
+TC28  Project cannot be closed with incomplete work/critical defects  VE                        VE                        PASS
+TC29  Requirement with tasks cannot be deleted                        VE                        VE                        PASS
+TC30  Task with successors cannot be deleted                          VE                        VE                        PASS
+TC31  Approving CR1+CR2 raises budget by 800,000                      5800000                   5800000                   PASS
+TC32  Approving CR1+CR2 extends deadline by 21 days (3 weeks)         2027-01-10                2027-01-10                PASS
+TC33  Impact preview matched real result for CR1                      5450000                   5450000                   PASS
+TC34  CR requirements now Approved (in scope)                         2                         2                         PASS
+TC35  Tasks for the new requirements are now accepted                 no error                  no error                  PASS
+TC36  Decided change request is locked                                VE                        VE                        PASS
+TC37  Baseline log records both approvals                             2                         2                         PASS
+TC38  Rejected CR marks its proposed requirement Rejected             Rejected                  Rejected                  PASS
+TC39  No actual cost yet -> CPI is undefined (None), no crash         None                      None                      PASS
+TC40  Dashboard: pending CRs / delayed / critical defects             2/6/2                     2/6/2                     PASS
+TC41  Late status date: more tasks flagged Delayed                    True                      True                      PASS
+TC42  Invalid status date rejected                                    VE                        VE                        PASS
+TC43  WBS generated hierarchically (deliverables + work packages)     True                      True                      PASS
+TC44  WBS rejects non-approved requirement                            VE                        VE                        PASS
+
+44/44 passed
